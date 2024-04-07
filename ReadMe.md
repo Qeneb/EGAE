@@ -5,11 +5,6 @@ This is a repository for Data Mining Mid-term Homework in SJTU
 The core idea of EGAE is to **design a GNN to find an ideal space for the relaxed *k*-means** on graph data. We prove that the relaxed *k*-means will obtain a precise clustering result under some strong assumptions. So we attempt to use GNNs to map the data into an ideal space that satisfies the strong assumptions.  
 
 
-
-If you have issues, please email:
-
-hyzhang98@gmail.com or hyzhang98@mail.nwpu.edu.cn.
-
 ## How to Run EGAE
 ```
 python run.py
