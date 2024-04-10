@@ -199,7 +199,7 @@ if __name__ == '__main__':
     learning_rate = 10**-4*4
     pretrain_learning_rate = 0.001
     coeff_reg = 0.001
-    alphalist = np.linspace(0, 1, 6)
+    alphalist = np.linspace(0, 1, 11)
     namelist = ['cora', 'pubmed']
     for name in namelist:
         acclist = []
