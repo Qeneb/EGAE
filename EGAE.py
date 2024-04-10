@@ -201,9 +201,9 @@ if __name__ == '__main__':
     coeff_reg = 0.001
     alphalist = np.linspace(0, 1, 6)
     namelist = ['cora', 'pubmed']
-    acclist = []
-    nmilist = []
     for name in namelist:
+        acclist = []
+        nmilist = []
         for alpha in alphalist:
             print('========== alpha={}, reg={} =========='.format(alpha, coeff_reg))
             gae = EGAE(features, adjacency, labels, alpha, layers=layers, acts=acts,
