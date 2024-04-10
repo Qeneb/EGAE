@@ -221,7 +221,6 @@ if __name__ == '__main__':
 
             # 画Embedding特征以及预测数据标签的t-SNE可视化
             predicted_label = gae.predict()
-            predicted_label = predicted_label.cpu()
             embedding = gae.embedding.cpu()
             plotdata2dim(gae.embedding, predicted_label, title="t-SNE Visualization of "+name+" with alpha = "+str(alpha), figname="fig/tsne_"+name+"_alpha"+str(alpha)+".png")
 
