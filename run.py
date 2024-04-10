@@ -1,5 +1,5 @@
-from data_loader import *
-from model import EGAE, GAE
+from load_data import *
+from model import EGAE
 import torch
 import warnings
 
@@ -12,7 +12,6 @@ if __name__ == '__main__':
     features, adjacency, labels = load_data(name)
     layers = [256, 128]
     acts = [torch.nn.functional.relu] * len(layers)
-    # acts = [None, torch.nn.functional.relu]
     learning_rate = 10**-4*4
     pretrain_learning_rate = 0.001
     for coeff_reg in [0.001]:
