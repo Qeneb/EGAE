@@ -2,6 +2,10 @@ import torch
 from sklearn.cluster import KMeans
 from metrics import cal_clustering_metric
 from plotEGAE import *
+import warnings
+
+
+warnings.filterwarnings('ignore')
 
 
 def get_weight_initial(shape):
@@ -208,7 +212,7 @@ if __name__ == '__main__':
             losses = gae.run()
             # scio.savemat('losses_{}.mat'.format(name), {'losses': np.array(losses)})
             # 画该模型训练过程Loss曲线
-            plotloss(losses, title="Convergence of EGAE on "+name+" with alpha = "+str(alpha), figname="fig/loss_"+name+"_alpha"+str(alpha))
+            plotloss(losses, title="Convergence of EGAE on "+name+" with alpha = "+str(alpha), figname="fig/loss_"+name+"_alpha"+str(alpha)+".png")
 
             # 记录不同alpha下聚类的ACC和NMI
             acc, nmi, _ = gae.clustering()
@@ -217,7 +221,7 @@ if __name__ == '__main__':
 
             # 画Embedding特征以及预测数据标签的t-SNE可视化
             predicted_label = gae.predict()
-            plotdata2dim(gae.embedding, predicted_label, title="t-SNE Visualization of "+name+" with alpha = "+str(alpha), figname="fig/tsne_"+name+"_alpha"+str(alpha))
+            plotdata2dim(gae.embedding, predicted_label, title="t-SNE Visualization of "+name+" with alpha = "+str(alpha), figname="fig/tsne_"+name+"_alpha"+str(alpha)+".png")
 
         # 画不同alpha下聚类的ACC和NMI
-        plotACCandNMI(alphalist, acclist, nmilist, title="Impact of alpha on "+name, figname="fig/alpha_on_"+name)
+        plotACCandNMI(alphalist, acclist, nmilist, title="Impact of alpha on "+name, figname="fig/alpha_on_"+name+".png")

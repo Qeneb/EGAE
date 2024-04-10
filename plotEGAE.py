@@ -20,6 +20,7 @@ def plotdata2dim(data, label, title="t-SNE Visualization", figname="t_sne_cluste
     # plt.show()
     plt.savefig(figname)
     plt.clf()
+    print('========== {} is save in fig =========='.format(title))
 
 
 def plotrawfeatures():
@@ -38,6 +39,7 @@ def plotloss(loss, title="Loss", figname="loss.png"):
     # plt.show()
     plt.savefig(figname)
     plt.clf()
+    print('========== {} is save in fig =========='.format(title))
 
 
 def plotACCandNMI(alpha, ACC, NMI, title="Impact of alpha", figname="Impact of alpha"):
@@ -55,6 +57,7 @@ def plotACCandNMI(alpha, ACC, NMI, title="Impact of alpha", figname="Impact of a
     # plt.show()
     plt.savefig(figname)
     plt.clf()
+    print('========== {} is save in fig =========='.format(title))
 
 # # Test ACCandNMI
 # alpha = np.linspace(0, 1, 20)
