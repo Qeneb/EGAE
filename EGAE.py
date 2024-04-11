@@ -192,7 +192,7 @@ class EGAE(torch.nn.Module):
 
 
 if __name__ == '__main__':
-    layers = [256, 128]
+    layers = [128, 64]
     acts = [torch.nn.functional.relu] * len(layers)
     # acts = [None, torch.nn.functional.relu]
     learning_rate = 10**-4*4
