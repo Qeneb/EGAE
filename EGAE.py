@@ -198,7 +198,7 @@ if __name__ == '__main__':
     pretrain_learning_rate = 0.001
     coeff_reg = 0.001
     alphalist = np.linspace(0, 1, 11)
-    namelist = ['cora', 'pubmed']
+    namelist = ['pubmed', 'cora']
     for name in namelist:
         features, adjacency, labels = load_data(name)
         acclist = []

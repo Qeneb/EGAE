@@ -40,7 +40,7 @@ def load_pubmed():
     features = data['fea']
     labels = data['gnd']
     labels = np.reshape(labels, (labels.shape[0],))
-    return features, None, adj.tocoo(), labels
+    return features, None, adj, labels
 
 
 def load_citeseer():
