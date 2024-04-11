@@ -191,8 +191,6 @@ class EGAE(torch.nn.Module):
 
 
 if __name__ == '__main__':
-    name = 'cora'
-    features, adjacency, labels = load_data(name)
     layers = [256, 128]
     acts = [torch.nn.functional.relu] * len(layers)
     # acts = [None, torch.nn.functional.relu]
@@ -202,9 +200,11 @@ if __name__ == '__main__':
     alphalist = np.linspace(0, 1, 11)
     namelist = ['cora', 'pubmed']
     for name in namelist:
+        features, adjacency, labels = load_data(name)
         acclist = []
         nmilist = []
         for alpha in alphalist:
+            alpha = int(alpha * 10) / 10
             print('========== alpha={}, reg={} =========='.format(alpha, coeff_reg))
             gae = EGAE(features, adjacency, labels, alpha, layers=layers, acts=acts,
                        max_epoch=50, max_iter=4, coeff_reg=coeff_reg, learning_rate=learning_rate)
