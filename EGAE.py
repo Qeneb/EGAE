@@ -43,7 +43,7 @@ class EGAE(torch.nn.Module):
         self.device = device
         self.Adevice = torch.device('cuda:1' if torch.cuda.is_available() else 'cpu')
         self.X = to_tensor(X).to(self.device)
-        self.adjacency = to_tensor(A).to(self.Adevice)
+        self.adjacency = to_tensor(A).to(self.device)
         self.labels = to_tensor(labels).to(self.device)
         self.n_clusters = self.labels.unique().shape[0]
         self.alpha = alpha
@@ -66,7 +66,7 @@ class EGAE(torch.nn.Module):
         self.indicator = None
         self.embedding = self.X
         self._build_up()
-        self.to(self.device)
+        self.to(self.Adevice)
 
     def _build_up(self):
         self._gcn_parameters = []
