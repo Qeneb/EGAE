@@ -38,7 +38,7 @@ class EGAE(torch.nn.Module):
     """
     def __init__(self, X, A, labels, alpha, layers=None, acts=None, max_epoch=10, max_iter=50,
                  learning_rate=10**-2, coeff_reg=10**-3,
-                 device=torch.device('cuda:3' if torch.cuda.is_available() else 'cpu')):
+                 device=torch.device('cpu' if torch.cuda.is_available() else 'cpu')):
         super(EGAE, self).__init__()
         self.device = device
         self.X = to_tensor(X).to(self.device)
@@ -191,7 +191,7 @@ class EGAE(torch.nn.Module):
 
 
 if __name__ == '__main__':
-    layers = [128, 64]
+    layers = [256, 128]
     acts = [torch.nn.functional.relu] * len(layers)
     # acts = [None, torch.nn.functional.relu]
     learning_rate = 10**-4*4
