@@ -41,8 +41,9 @@ class EGAE(torch.nn.Module):
                  device=torch.device('cuda:3' if torch.cuda.is_available() else 'cpu')):
         super(EGAE, self).__init__()
         self.device = device
+        self.Adevice = torch.device('cuda:1' if torch.cuda.is_available() else 'cpu')
         self.X = to_tensor(X).to(self.device)
-        self.adjacency = to_tensor(A).to(self.device)
+        self.adjacency = to_tensor(A).to(self.Adevice)
         self.labels = to_tensor(labels).to(self.device)
         self.n_clusters = self.labels.unique().shape[0]
         self.alpha = alpha
